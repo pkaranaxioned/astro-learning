@@ -1,8 +1,10 @@
 ---
+import Header from "../components/Header.astro";
+
 const { title = "astro" } = Astro.props;
 ---
 
-<html lang="en">
+<html lang="en" class="font-poppins box-sizing: border-box;">
 <head>
 	<meta charset="utf-8" />
 	<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -14,9 +16,7 @@ const { title = "astro" } = Astro.props;
 	<title>{ title }</title>
 </head>
 <body>
-	<a href="/">Home</a>
-	<a href="/about/">About</a>
-	<a href="/blogs/">Blogs</a>
+	<Header />
 	<slot />
 </body>
 </html>
