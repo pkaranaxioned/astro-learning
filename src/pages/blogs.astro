@@ -1,17 +1,18 @@
 ---
+import Wrapper from "../components/UI/Wrapper.astro";
 import HtmlLayout from "../layouts/HtmlBaseLayout.astro";
 
 const blogs = await Astro.glob('../pages/blogs/*.md');
 ---
 
 <HtmlLayout title="Blogs">
+  <section class="py-10">
+    <Wrapper class="flex ">
 	{
 		blogs.map((blog) => {
-			// console.log(blog);
-			
-			return <article>
+			return <article class="[&:not(nth-child(3))]:mr-3 basis-2/6">
 				<a href={ blog.url } title={ blog.frontmatter.title }>
-					<img src={ blog.frontmatter.image.url } alt={ blog.frontmatter.image.alt }/>	
+					<img width="" src={ blog.frontmatter.image.url } alt={ blog.frontmatter.image.alt }/>	
 				</a>
 				<h2>
 					<a href={ blog.url } title={ blog.frontmatter.title }>{ blog.frontmatter.title }</a>
@@ -21,5 +22,6 @@ const blogs = await Astro.glob('../pages/blogs/*.md');
 			</article>
 		})
 	}
-	<h1>Blogs</h1>
+    </Wrapper>
+  </section>
 </HtmlLayout>

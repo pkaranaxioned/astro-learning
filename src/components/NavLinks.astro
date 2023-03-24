@@ -1,0 +1,28 @@
+---
+const navLinks = [
+{
+  name: 'Home',
+  url: "/"
+},
+{
+  name: 'About',
+  url: "/about"
+},
+{
+  name: 'Blogs',
+  url: "/blogs"
+},
+]
+---
+
+<nav>
+  <ul class="flex">
+    {
+      navLinks.map((links) => {
+        return <li class="mr-7 last:mr-7">
+          <a href={links.url} title={ links.name }>{ links.name }</a>
+        </li>
+      })
+    }
+  </ul>
+</nav>

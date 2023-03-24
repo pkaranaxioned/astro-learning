@@ -1,7 +1,20 @@
 ---
+import Wrapper from "../components/UI/Wrapper.astro";
 import HtmlLayout from "../layouts/HtmlBaseLayout.astro";
+
+// const {frontmatter: { title }} = Astro.props;
 ---
 
 <HtmlLayout title="Astro Home">
-	<h1>testing</h1>
+  <section class="py-10">
+      <Wrapper>
+        <h1 class="text-5xl mb-5">Astro Home</h1>
+        <figure class="mb-5">
+          <img class="max-h-96 overflow-hidden object-cover" height="300" width="1280" src="https://images.unsplash.com/photo-1679473379899-20654f983d1e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2072&q=80" alt="banner">
+        </figure>
+        <p>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi voluptatem aliquam doloribus quia nam iure libero minus exercitationem accusantium labore natus voluptas pariatur a dolor repellendus aut, animi quo ex eius laudantium tempore nisi culpa! Assumenda facilis esse repellendus ipsam libero fuga! Ex soluta illo explicabo dolor sapiente fugiat molestiae?
+        </p>
+      </Wrapper>
+    </section>
 </HtmlLayout>
