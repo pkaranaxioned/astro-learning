@@ -9,6 +9,9 @@ module.exports = {
 			colors: {
 				'orangered': '#ff4500',
 			  },
+			margin: {
+				'12px': '0.95%',
+			}
 		},
 	},
 	plugins: [],
