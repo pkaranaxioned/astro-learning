@@ -1,0 +1,16 @@
+---
+import Wrapper from "../components/UI/Wrapper.astro";
+import HtmlLayout from "../layouts/HtmlBaseLayout.astro";
+
+const {frontmatter: { title }} = Astro.props;
+
+---
+
+<HtmlLayout title={title}>
+  <section class="py-5 blogs">
+      <Wrapper>
+        <h1 class="text-5xl mb-5">{ title }</h1>
+        <slot />
+      </Wrapper>
+    </section>
+</HtmlLayout>
