@@ -1,4 +1,9 @@
 ---
+import { useStore } from "@nanostores/react";
+import { isDarkMode } from "../store/darkModeStore";
+
+const $isDarkModeOn = useStore(isDarkMode);
+
 const navLinks = [
 {
   name: 'Home',

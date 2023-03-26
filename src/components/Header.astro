@@ -1,5 +1,5 @@
 ---
-import NavLinks from "./NavLinks.astro";
+import { NavLinks } from "./NavLinks.jsx";
 import Wrapper from "./UI/Wrapper.astro";
 ---
 <header class="py-5 bg-orangered text-white">
@@ -9,6 +9,6 @@ import Wrapper from "./UI/Wrapper.astro";
         {'<axioned.codex />'}
       </a>
     </h1>
-    <NavLinks />
+    <NavLinks client:load />
   </Wrapper>
 </header>
