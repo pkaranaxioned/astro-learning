@@ -1,8 +1,10 @@
 ---
 import Header from "../components/Header.astro";
-import '../styles/global.css'
+import '../styles/global.css';
+import { isDarkMode } from "../store/darkModeStore";
 
 const { title = "astro" } = Astro.props;
+const isDarkModeOn = isDarkMode.get();
 ---
 
 <html lang="en" class="font-poppins box-sizing: border-box;">
@@ -17,7 +19,7 @@ const { title = "astro" } = Astro.props;
 	<title>{ title }</title>
 </head>
 <body>
-	<Header client:load />
+	<Header />
 	<slot />
 </body>
 </html>

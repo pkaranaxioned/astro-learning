@@ -9,6 +9,8 @@ export async function getStaticPaths() {
 }
 // 2. When it's time to render, you can get the blog directly from the prop
 const { blog } = Astro.props;
+// console.log(blog);
+
 const { Content } = await blog.render();
 ---
-<Content />
+<Content blog={blog} />

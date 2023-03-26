@@ -3,6 +3,11 @@ import Wrapper from "../components/UI/Wrapper.astro";
 import HtmlLayout from "../layouts/HtmlBaseLayout.astro";
 
 const {frontmatter: { title }} = Astro.props;
+const {slug} = Astro.params;
+
+if(slug === undefined) {
+  Astro.redirect('/404')
+}
 
 ---
 
