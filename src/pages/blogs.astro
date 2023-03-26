@@ -1,8 +1,10 @@
 ---
+import { getCollection } from "astro:content";
 import Wrapper from "../components/UI/Wrapper.astro";
 import HtmlLayout from "../layouts/HtmlBaseLayout.astro";
 
-const blogs = await Astro.glob('../pages/blogs/*.md');
+// const blogs = await Astro.glob('../content/blogs/*.md');
+const blogs = await getCollection('blogs');
 ---
 
 <HtmlLayout title="Blogs">
@@ -10,15 +12,18 @@ const blogs = await Astro.glob('../pages/blogs/*.md');
 		<Wrapper class="flex flex-wrap [&>:not(:nth-child(3n))]:mr-12px">
 			{
 				blogs.map((blog) => {
+					const { slug, collection, data: { title, description, image } } = blog;
+					// console.log(blog);
+					
 					return <article class="basis-[32.7%] mb-12px bg-gray-100 rounded-xl overflow-hidden">
-						<a href={ blog.url } title={ blog.frontmatter.title } class="overflow-hidden block">
-							<img width="413" height="273" class="hover:scale-110 transition-all origin-center	 " src={ blog.frontmatter.image.url } alt={ blog.frontmatter.image.alt }/>	
+						<a href={ `${collection}/${slug}` } title={ title } class="overflow-hidden block">
+							<img width="413" height="273" class="hover:scale-110 transition-all origin-center	 " src={ image.url } alt={ image.alt }/>	
 						</a>
 						<div class=" py-4 px-6">
 							<h2 class="font-bold text-xl">
-								<a href={ blog.url } title={ blog.frontmatter.title }>{ blog.frontmatter.title }</a>
+								<a href={ slug } title={ title }>{ title }</a>
 							</h2>
-							{blog.frontmatter.description && <p class="mt-2 leading-6">{ blog.frontmatter.description }</p>}
+							{description && <p class="mt-2 leading-6">{ description }</p>}
 						</div>
 					</article>
 				})

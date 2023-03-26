@@ -17,7 +17,7 @@ const { title = "astro" } = Astro.props;
 	<title>{ title }</title>
 </head>
 <body>
-	<Header />
+	<Header client:load />
 	<slot />
 </body>
 </html>
